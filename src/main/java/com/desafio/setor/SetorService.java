@@ -37,7 +37,6 @@ public class SetorService {
 			System.err.println(e);
 			return null;
 		}
-
 	}
 
 	public boolean deletarSetor(Long id) {

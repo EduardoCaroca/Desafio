@@ -38,7 +38,6 @@ public class CargoService {
 			System.err.println(e);
 			return null;
 		}
-		
 	}
 
 	public Cargo editarCargo(Long id, Cargo cargoAtualizado) {
@@ -53,7 +52,6 @@ public class CargoService {
 			System.err.println(e);
 			return null;
 		}
-		
 	}
 
 	public boolean deletarCargo(Long id) {
