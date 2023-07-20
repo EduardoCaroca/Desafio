@@ -10,35 +10,46 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
+@Tag(name = "cargo")
+@RequestMapping(value = "/cargo")
 public class CargoController {
 
 	@Autowired
 	private CargoService cargoService;
 
-	@PostMapping("/cargo")
+	@PostMapping("")
+	@Operation(summary = "Adiciona um cargo", method = "POST")
 	public Cargo adicionarCargo(@Validated @RequestBody Cargo cargo) {
 		return cargoService.adicionarCargo(cargo);
 	}
 
-	@PutMapping("/cargo/{id}")
+	@PutMapping("/{id}")
+	@Operation(summary = "Editar um cargo", method = "PUT")
 	public Cargo editarCargo(@PathVariable Long id, @RequestBody Cargo cargoAtualizado) {
 		return cargoService.editarCargo(id, cargoAtualizado);
 	}
 
-	@DeleteMapping("/cargo/{id}")
+	@DeleteMapping("/{id}")
+	@Operation(summary = "Deletar um cargo", method = "DELETE")
 	public boolean deletarCargo(@PathVariable Long id) {
 		return cargoService.deletarCargo(id);
 	}
 
-	@GetMapping("/cargo")
+	@GetMapping("")
+	@Operation(summary = "Listar todos os cargo", method = "GET")
 	public List<Cargo> listarCargos() {
 		return cargoService.listarCargos();
 	}
-	
-	@GetMapping("/cargo/{id}")
+
+	@GetMapping("/{id}")
+	@Operation(summary = "Buscar um cargo por ID", method = "GET")
 	public Cargo listarCargoById(@PathVariable Long id) {
 		return cargoService.listarCargoById(id);
 	}

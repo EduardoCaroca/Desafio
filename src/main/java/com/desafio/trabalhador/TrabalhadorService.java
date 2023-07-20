@@ -88,14 +88,11 @@ public class TrabalhadorService {
 	}
 
 	public Trabalhador listarTrabalhadorById(Long id) {
-		try {
-			Trabalhador trabalhadorExistente = trabalhadorRepository.findById(id)
-					.orElseThrow(() -> new IllegalArgumentException("Trabalhador não encontrado com o ID: " + id));
-			return trabalhadorExistente;
-		} catch (Exception e) {
-			System.err.println(e);
-			return null;
-		}
+
+		Trabalhador trabalhadorExistente = trabalhadorRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Trabalhador não encontrado com o ID: " + id));
+		return trabalhadorExistente;
+
 	}
 
 	public boolean validarCPF(String cpf) {
@@ -131,7 +128,5 @@ public class TrabalhadorService {
 			return false;
 		}
 	}
-	
-	
 
 }

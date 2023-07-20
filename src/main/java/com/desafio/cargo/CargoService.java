@@ -38,6 +38,7 @@ public class CargoService {
 			System.err.println(e);
 			return null;
 		}
+		
 	}
 
 	public Cargo editarCargo(Long id, Cargo cargoAtualizado) {
